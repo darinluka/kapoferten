@@ -14,17 +14,27 @@ export class NotificationsService {
 
   private initializeFirebase() {
     try {
-      const credPath = process.env.FIREBASE_CREDENTIALS;
-      if (credPath && fs.existsSync(credPath)) {
-        const serviceAccount = JSON.parse(fs.readFileSync(credPath, 'utf8'));
-        initializeApp({
-          credential: cert(serviceAccount),
-        });
-        this.fcmInitialized = true;
-        console.log('Firebase Cloud Messaging successfully initialized.');
+      const creds = process.env.FIREBASE_CREDENTIALS;
+      if (creds) {
+        let serviceAccount: any;
+        if (creds.trim().startsWith('{')) {
+          serviceAccount = JSON.parse(creds);
+        } else if (fs.existsSync(creds)) {
+          serviceAccount = JSON.parse(fs.readFileSync(creds, 'utf8'));
+        }
+
+        if (serviceAccount) {
+          initializeApp({
+            credential: cert(serviceAccount),
+          });
+          this.fcmInitialized = true;
+          console.log('Firebase Cloud Messaging successfully initialized.');
+        } else {
+          console.warn('Firebase credentials could not be parsed. Running in MOCK FCM mode.');
+        }
       } else {
         console.warn(
-          'Firebase credentials file not found or not configured. Running in MOCK FCM mode.',
+          'Firebase credentials environment variable not set. Running in MOCK FCM mode.',
         );
       }
     } catch (error) {
