@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "974452859020",
+    "project_id": "kape-oferten",
+    "storage_bucket": "kape-oferten.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974452859020:android:13d33c2edbde550bed9ba9",
+        "android_client_info": {
+          "package_name": "com.kapoferten.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUuf__JlYfkTP6DNJHla57NcfItpBHaDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
