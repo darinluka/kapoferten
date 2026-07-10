@@ -78,9 +78,11 @@ export class ScraperProcessor extends WorkerHost {
     // 1. Match keyword (case-insensitive)
     if (alert.keyword) {
       const keywordLower = alert.keyword.toLowerCase().trim();
-      const titleLower = listing.title.toLowerCase();
-      if (!titleLower.includes(keywordLower)) {
-        return false;
+      if (keywordLower !== '' && keywordLower !== 'all' && keywordLower !== 'të gjitha' && keywordLower !== 'te gjitha') {
+        const titleLower = listing.title.toLowerCase();
+        if (!titleLower.includes(keywordLower)) {
+          return false;
+        }
       }
     }
 
