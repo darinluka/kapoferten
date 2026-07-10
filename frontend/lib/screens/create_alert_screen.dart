@@ -113,7 +113,7 @@ class _CreateAlertScreenState extends State<CreateAlertScreen> {
               TextFormField(
                 controller: _keywordController,
                 style: const TextStyle(color: Colors.white),
-                decoration: _buildInputDecoration('Fjala kyçe (p.sh. Golf 6)', Icons.search, secondaryColor),
+                decoration: _buildInputDecoration('Fjala kyçe (Lëreni bosh për të gjitha)', Icons.search, secondaryColor),
               ),
               const SizedBox(height: 20),
               Row(
